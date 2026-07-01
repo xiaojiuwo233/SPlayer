@@ -235,6 +235,22 @@ export const useNetworkSettings = (): SettingConfig => {
         ],
       },
       {
+        title: "网易云音乐",
+        items: [
+          {
+            key: "netease_scrobble",
+            label: "同步播放记录",
+            type: "switch",
+            description:
+              "将听歌记录同步至网易云账号，使官方客户端与其他设备可见「最近播放」及听歌足迹（需登录网易云账号）",
+            value: computed({
+              get: () => settingStore.neteaseScrobbleEnabled,
+              set: (v) => (settingStore.neteaseScrobbleEnabled = v),
+            }),
+          },
+        ],
+      },
+      {
         title: "网络代理",
         items: [
           {

@@ -1,4 +1,5 @@
 import request from "@/utils/request";
+import { getNcmQrSDeviceId } from "@/utils/ncmClientContext";
 
 // 生成二维码 key
 export const qrKey = () => {
@@ -18,6 +19,8 @@ export const qrCreate = (key: string, qrimg: boolean = true) => {
     params: {
       key,
       qrimg,
+      platform: "web",
+      cookie: `sDeviceId=${getNcmQrSDeviceId()}`,
       noCookie: true,
       timestamp: Date.now(),
     },

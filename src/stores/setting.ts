@@ -439,6 +439,8 @@ export interface SettingState {
     scrobbleEnabled: boolean;
     nowPlayingEnabled: boolean;
   };
+  /** 同步播放记录到网易云账号（最近播放 / 听歌足迹） */
+  neteaseScrobbleEnabled: boolean;
   /** 播放器跟随封面主色 */
   playerFollowCoverColor: boolean;
   /** 进度条悬浮时显示歌词 */
@@ -728,6 +730,7 @@ export const useSettingStore = defineStore("setting", {
       scrobbleEnabled: true,
       nowPlayingEnabled: true,
     },
+    neteaseScrobbleEnabled: false,
     playerFollowCoverColor: true,
     progressLyricShow: true,
     discordRpc: {

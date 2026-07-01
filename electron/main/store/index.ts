@@ -75,6 +75,31 @@ export interface StoreType {
       enabled: boolean;
     };
   };
+  /** 网易云客户端模拟上下文 */
+  ncmClient: {
+    /** 二维码登录设备标识 */
+    sDeviceId: string;
+    /** 桌面客户端设备标识 */
+    deviceId: string;
+    /** 客户端签名 */
+    clientSign: string;
+    /** 客户端版本 */
+    appver: string;
+    /** 客户端版本号 */
+    versioncode: string;
+    /** 构建号 */
+    buildver: string;
+    /** 渠道 */
+    channel: string;
+    /** 设备模式名 */
+    mode: string;
+    /** 系统版本 */
+    osver: string;
+    /** 客户端会话标识 */
+    WEVNSM: string;
+    /** 客户端实例标识 */
+    WNMCID: string;
+  };
 }
 
 /**
@@ -106,6 +131,19 @@ export const useStore = () => {
         statusBarLyric: {
           enabled: false,
         },
+      },
+      ncmClient: {
+        sDeviceId: "",
+        deviceId: "",
+        clientSign: "",
+        appver: "3.1.35",
+        versioncode: "205293",
+        buildver: "",
+        channel: "netease",
+        mode: "SPlayer",
+        osver: "",
+        WEVNSM: "1.0.0",
+        WNMCID: "",
       },
       proxy: "",
       amllDbServer: defaultAMLLDbServer,

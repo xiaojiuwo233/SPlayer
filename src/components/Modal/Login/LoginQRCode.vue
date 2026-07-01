@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { qrKey, checkQr } from "@/api/login";
+import { qrKey, qrCreate, checkQr } from "@/api/login";
 import { LoginType } from "@/types/main";
 import { coverLoaded } from "@/utils/helper";
 
@@ -81,7 +81,8 @@ const getQrData = async () => {
     loginAvatar.value = "";
     // 获取 key
     const res = await qrKey();
-    qrImg.value = `https://music.163.com/login?codekey=${res.data.unikey}`;
+    const qrData = await qrCreate(res.data.unikey, false);
+    qrImg.value = qrData.data.qrurl;
     // 更改 key
     qrUnikey.value = res.data.unikey;
     // 检查状态

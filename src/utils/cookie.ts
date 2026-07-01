@@ -35,9 +35,10 @@ export const setCookies = (cookieValue: string) => {
     // 跳过空字符串
     const trimmedCookie = cookie.trim();
     if (!trimmedCookie) return;
-    const nameValuePair = trimmedCookie.split("=");
-    const name = nameValuePair[0]?.trim();
-    const value = nameValuePair[1]?.trim();
+    const separatorIndex = trimmedCookie.indexOf("=");
+    if (separatorIndex <= 0) return;
+    const name = trimmedCookie.slice(0, separatorIndex).trim();
+    const value = trimmedCookie.slice(separatorIndex + 1).trim();
     // 跳过无效的cookie
     if (!name || !value) return;
     console.info(`name: ${name}, value: ${value}`);
